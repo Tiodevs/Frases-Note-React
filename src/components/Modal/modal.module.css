@@ -1,0 +1,111 @@
+.background{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.768);
+}
+
+.modal{
+    position: fixed;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #101026;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.modal h2{
+    color: #FFFF;
+    font-size: 20;
+    font-weight: 400;
+}
+
+.btnFechar{
+    background-color: #10102600;
+    border: none;
+}
+
+.btnFechar img{
+    width: 40px;
+    cursor: pointer;
+}
+
+.headerModal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linha{
+    background-color: #b1b2b44c;
+    margin-top: 10px;
+    width: 100%;
+    height: 1px;
+}
+
+.item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 30px;
+}
+
+.btnIcons{
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnIcons button{
+    background-color: #10102600;
+    border: none;
+    margin-left: 10px;
+}
+
+.btnIcons button img{
+    width: 35px;
+    cursor: pointer;
+}
+
+@media (max-width: 625px){
+    .modal{
+        
+        width: 90%;
+        padding: 30px;
+        border-radius: 15px;
+    }
+
+    .textHeaderModal h2{
+        color: #FFFF;
+        font-size: 19px;
+    }
+    
+    .btnFechar img{
+        width: 30px;
+    }
+    
+    .item{
+        margin-top: 25px;
+    }
+    
+    
+    .btnIcons button{
+        background-color: #10102600;
+        border: none;
+        margin-left: 10px;
+    }
+    
+    .btnIcons button img{
+        width: 25px;
+    }
+
+    .item h2{
+        font-size: 18px;
+    }
+}

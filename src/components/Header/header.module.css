@@ -1,0 +1,49 @@
+
+
+.headerTopo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerText h1{
+    color: #F0A202;
+    font-size: 38px;
+}
+
+.headerText p{
+    color: #FFFFFF;
+    font-size: 19px;
+    font-weight: 200;
+}
+
+.headerTopo img{
+    width: 165px;
+    margin-top: 10px;
+}
+
+.linha{
+    background-color: #b1b2b44c;
+    margin-top: 23px;
+    width: 100%;
+    height: 1px;
+}
+
+@media (max-width: 625px){
+    .headerText h1{
+        font-size: 1.5rem;
+    }
+    
+    .headerText p{
+        font-size: 0.7rem;
+    }
+    
+    .headerTopo img{
+        width: 5.6rem;
+        margin-top: 10px;
+    }
+    
+    .linha{
+        margin-top: 14px;
+    }
+}

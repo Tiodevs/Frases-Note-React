@@ -1,0 +1,104 @@
+.form {
+    display: flex;
+    margin-top: 45px;
+}
+
+.form input{
+    background-color: #FFFF;
+    color: #161633;
+    border: none;
+    border-radius: 13px;
+    padding: 25px 35px;
+    font-size: 20px;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.form button{
+    background-color: #F0A202;
+    border: none;
+    font-size: 20px;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.form button:hover{
+    background-color: #F0A202;
+}
+
+@media (max-width: 625px){
+    .form{
+        margin-top: 35px;
+    }
+    
+    .form input{
+        border-radius: 10px;
+        padding: 13px 25px;
+        font-size: 13px;
+    }
+    
+    .form button{
+        font-size: 13px;
+        padding: 16px 30px;
+        border-radius: 10px;
+    }
+    
+    .form button:hover{
+        background-color: #F0A202;
+    }
+}
+
+.form2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.form2 input{
+    background-color: #FFFF;
+    color: #161633;
+    border: none;
+    border-radius: 13px;
+    padding: 25px 35px;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.form2 button{
+    background-color: #F0A202;
+    border: none;
+    font-size: 20px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.form2 button:hover{
+    background-color: #F0A202;
+}
+
+@media (max-width: 625px){
+    .form2{
+        margin-top: 35px;
+    }
+    
+    .form2 input{
+        border-radius: 10px;
+        padding: 13px 25px;
+        font-size: 13px;
+    }
+    
+    .form2 button{
+        font-size: 13px;
+        padding: 16px 30px;
+        border-radius: 10px;
+    }
+    
+    .form2 button:hover{
+        background-color: #F0A202;
+    }
+}

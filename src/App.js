@@ -14,6 +14,9 @@ import { Header } from "./components/Header";
 import { Form } from "./components/Form";
 import { Footer } from "./components/Footer";
 
+// Gerar imagem
+import { toPng } from 'html-to-image';
+
 function App() {
 
   // Alertas com o toastify
@@ -66,6 +69,26 @@ function App() {
     content: () => contentDocument.current,
     documentTitle: "To do list s2"
   })
+
+  // Compartilhar 
+  const contentRef = useRef();
+
+  const shareImage = async () => {
+    try {
+      const dataUrl = await toPng(contentRef.current);
+      const blob = await fetch(dataUrl).then((res) => res.blob());
+      const file = new File([blob], 'share-image.png', { type: 'image/png' });
+
+      if (navigator.share) {
+        await navigator.share({
+          files: [file],
+          title: 'Compartilhar imagem',
+        });
+      }
+    } catch (error) {
+      console.error('Error sharing image:', error);
+    }
+  };
 
   // Consts useState
   const [isMobile, setIsMobile] = useState(false);
@@ -218,7 +241,7 @@ function App() {
 
 
 
-        <div className="itens">
+        <div className="itens" ref={contentRef}>
           {tarefas.length === 0 ? (
             <div className="item">
               <p>Responda o formulario para adicionar um item :D</p>
@@ -251,6 +274,7 @@ function App() {
             <button onClick={copyToClipboard} className="btnCopy">
               Copiar Lista
             </button>
+            <button onClick={shareImage} className="btnCopy">Compartilhar Imagem</button>
           </div>
         </div>
       </div>

@@ -14,9 +14,6 @@ import { Header } from "./components/Header";
 import { Form } from "./components/Form";
 import { Footer } from "./components/Footer";
 
-// Gerar imagem
-import { toPng } from 'html-to-image';
-
 function App() {
 
   // Alertas com o toastify
@@ -70,26 +67,6 @@ function App() {
     documentTitle: "To do list s2"
   })
 
-  // Compartilhar 
-  const contentRef = useRef();
-
-  const shareImage = async () => {
-    try {
-      const dataUrl = await toPng(contentRef.current);
-      const blob = await fetch(dataUrl).then((res) => res.blob());
-      const file = new File([blob], 'share-image.png', { type: 'image/png' });
-
-      if (navigator.share) {
-        await navigator.share({
-          files: [file],
-          title: 'Compartilhar imagem',
-        });
-      }
-    } catch (error) {
-      console.error('Error sharing image:', error);
-    }
-  };
-
   // Consts useState
   const [isMobile, setIsMobile] = useState(false);
   const [input, setInput] = useState("")
@@ -98,8 +75,10 @@ function App() {
   const [open, setOpen] = useState(true)
   const [edit, setEdit] = useState([{
     id: 1,
-    name: "teste",
+    name: "a",
+    frase: "a"
   }])
+  
 
   // useEffects
 
@@ -173,23 +152,22 @@ function App() {
     setTarefas(newList)
   }
 
-
-
-  function handleEdit(name, id) {
+  function handleEdit(name, id, frase) {
     // Abre o modal
-    setOpen(!open)
 
     // Pega as props e cria um novo item e armazena na const edit
     const editItem = {
       id: id,
-      name: name
+      name: name,
+      name: frase
     }
 
     setEdit([editItem])
+
+    setOpen(!open)
   }
 
   // Functions dos Btn Export
-
   const copyToClipboard = () => {
     // Concatenar os valores dos objetos em uma string
     const valuesToCopy = tarefas.map((item, index) => `-------\nNome: ${item.name}\nFrase: ${item.frase}`).join('\n');
@@ -205,6 +183,8 @@ function App() {
       });
   };
 
+  
+
   return (
     // O ref={contentDocument} define qual elemnto vai aparecer no PDF
     <div className="Container" ref={contentDocument}>
@@ -218,6 +198,8 @@ function App() {
           isOpen={open}
           fecharModal={setOpen}
           id={edit[0].id}
+          name={edit[0].name}
+          frase={edit[0].frase}
           lista={tarefas}
           mudarLista={setTarefas}
         />
@@ -241,7 +223,7 @@ function App() {
 
 
 
-        <div className="itens" ref={contentRef}>
+        <div className="itens">
           {tarefas.length === 0 ? (
             <div className="item">
               <p>Responda o formulario para adicionar um item :D</p>
@@ -257,7 +239,7 @@ function App() {
                   </div>
                 </div>
                 <div className="btnIcons">
-                  <button onClick={() => handleEdit(tarefa.name, tarefa.id)}>
+                  <button onClick={() => handleEdit(tarefa.name, tarefa.id, tarefa.frase)}>
                     <img src={pencil} className="itensIcon" />
                   </button>
                 </div>
@@ -274,7 +256,6 @@ function App() {
             <button onClick={copyToClipboard} className="btnCopy">
               Copiar Lista
             </button>
-            <button onClick={shareImage} className="btnCopy">Compartilhar Imagem</button>
           </div>
         </div>
       </div>

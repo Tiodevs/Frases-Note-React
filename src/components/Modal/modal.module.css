@@ -49,10 +49,33 @@
 
 .item{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
 
     margin-top: 30px;
+}
+
+.itemFrase{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+.itemFrase div{
+    margin-left: 15px;
+    margin-bottom: 30px;
+}
+
+.itemFraseTitulo{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.itemFraseFrase{
+    font-size: 20px;
+    font-weight: 400;
 }
 
 .btnIcons{
@@ -73,6 +96,11 @@
     cursor: pointer;
 }
 
+.btnShare{
+    background-color: rgba(16, 16, 38, 0);
+    border: none;
+}
+
 @media (max-width: 625px){
     .modal{
         
@@ -84,6 +112,16 @@
     .textHeaderModal h2{
         color: #FFFF;
         font-size: 19px;
+    }
+
+    .itemFraseTitulo{
+        font-size: 19px;
+        font-weight: 800;
+    }
+    
+    .itemFraseFrase{
+        font-size: 15px;
+        font-weight: 300;
     }
     
     .btnFechar img{
@@ -103,9 +141,5 @@
     
     .btnIcons button img{
         width: 25px;
-    }
-
-    .item h2{
-        font-size: 18px;
     }
 }

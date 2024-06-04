@@ -4,6 +4,10 @@ import style from './modal.module.css'
 import logoX from '../../assets/x.svg'
 import trash from '../../assets/trash.svg'
 
+// Gerar imagem
+import React, { useRef } from 'react';
+import { toPng } from 'html-to-image';
+
 export function Modal({ isOpen, fecharModal, id, lista, mudarLista }) {
 
     const [input, setInput] = useState("")
@@ -41,6 +45,25 @@ export function Modal({ isOpen, fecharModal, id, lista, mudarLista }) {
         setInput('')
     }
 
+    const contentRef = useRef();
+    
+    const shareImage = async () => {
+        try {
+          const dataUrl = await toPng(contentRef.current);
+          const blob = await fetch(dataUrl).then((res) => res.blob());
+          const file = new File([blob], 'share-image.png', { type: 'image/png' });
+    
+          if (navigator.share) {
+            await navigator.share({
+              files: [file],
+              title: 'Compartilhar imagem',
+            });
+          }
+        } catch (error) {
+          console.error('Error sharing image:', error);
+        }
+      };
+
     if (!isOpen) {
         return (
             <div className={style.background}>
@@ -50,11 +73,11 @@ export function Modal({ isOpen, fecharModal, id, lista, mudarLista }) {
                             <h2>Editar item</h2>
                         </div>
                         <button className={style.btnFechar} onClick={() => fecharModal(!isOpen)}>
-                            <img src={logoX} />
+                            <img src={logoX} alt='a' />
                         </button>
                     </div>
                     <div className={style.linha}></div>
-                    <div className={style.item}>
+                    <div className={style.item} ref={contentRef}>
                         <div>
                         <h2>{lista[index].name}</h2>
                         <h2>{lista[index].frase}</h2>
@@ -62,7 +85,7 @@ export function Modal({ isOpen, fecharModal, id, lista, mudarLista }) {
                         
                         <div className={style.btnIcons}>
                             <button onClick={() => handledeletar()}>
-                                <img src={trash}/>
+                                <img src={trash} alt='a'/>
                             </button>
                         </div>
                     </div>
@@ -77,6 +100,7 @@ export function Modal({ isOpen, fecharModal, id, lista, mudarLista }) {
                         textInput2={"Alterar frase"}
                         version={2}
                     />
+                    <button onClick={shareImage}>Compartilhar Imagem</button>
                 </div>
             </div>
         )

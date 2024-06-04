@@ -1,7 +1,4 @@
-import LofoGit from '../../assets/LogoGitHub.svg'
-import LogoIntagram from '../../assets/LogoIntagram.svg'
-import LogoLinkdin from '../../assets/LogoLinkdin.svg'
-import LogoWhatsApp from '../../assets/WhatsApp.svg'
+
 
 import style from './footer.module.css'
 

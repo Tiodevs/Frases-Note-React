@@ -9,7 +9,7 @@ export function Header({descricao,titulo}) {
                     <h1>{titulo}</h1>
                     <p>{descricao}</p>
                 </div>
-                <img src={logo} />
+                <img src={logo} alt='2'/>
             </div>
             <div className={style.linha}></div>
         </div>

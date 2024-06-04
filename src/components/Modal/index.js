@@ -81,7 +81,7 @@ export function Modal({ isOpen, fecharModal, id, name, frase, lista, mudarLista 
                         </button>
                     </div>
                     <div className={style.linha}></div>
-                    <div className={style.item} ref={contentRef}>
+                    <div className={style.item}>
                         <div ref={contentRef} className={style.itemFrase}>
                             <img src={quote} alt='quote'/>
                             <div>

@@ -62,22 +62,23 @@
     justify-content: start;
     align-items: start;
     background-color: #101026;
-    padding: 20px 15px;
+    padding: 20px 5px;
     height: auto;
 }
 
 .itemFrase div{
-    margin-left: 15px;
+    margin-left: 12px;
 }
 
 .itemFrase .itemFraseTitulo{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 500;
 }
 
-.itemFraseFrase{
-    font-size: 20px;
+.itemFrase .itemFraseFrase{
+    font-size: 15px;
     font-weight: 400;
+    text-align: start;
 }
 
 .btnIcons{
